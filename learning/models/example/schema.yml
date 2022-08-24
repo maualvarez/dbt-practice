@@ -11,7 +11,7 @@ models:
           - unique
 
   - name: dates
-  description: 'dates'          
+    description: 'dates'          
 
   - name: my_second_dbt_model
     description: "A starter dbt model"
