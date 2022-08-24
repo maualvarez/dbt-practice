@@ -40,8 +40,7 @@ models:
       +materialized: table
 #      post-hook: 'grant usage on shcema {{ target.this }} to role analyst'
 #      post-hook: 'grant select on {{ this }} to role analyst'
-      pre-hook: 
-        sql: 'insert into analytics.dbt.audit (model, state, time) values ("{{this.name}}","starting model deployment", current_timestamp)'
+      pre-hook: 'insert into analytics.dbt.audit (model, state, time) values ("{{this.name}}","starting model deployment", current_timestamp)'
 
 
 vars:

@@ -1,6 +1,6 @@
 --select c_custkey, c_acctbal
-select *
-from "SNOWFLAKE_SAMPLE_DATA"."TPCH_SF1"."CUSTOMER"
+select c_custkey, c_mktsegment, {{rename_segments('c_mktsegment')}} as mkt_segment_adjusted
+from {{ source('sample', 'customer') }}
 --group by c_custkey, c_acctbal
-group by c_custkey, c_acctbal, c_name, c_address, c_nationkey, c_phone, C_MKTSEGMENT, c_comment
-having sum(c_acctbal) < 200000000
+group by c_custkey, C_MKTSEGMENT
+--having sum(c_acctbal) < 200000000

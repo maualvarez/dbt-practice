@@ -25,7 +25,7 @@ models:
               to: ref('my_first_dbt_model')
               field: id
 
-  - name: snowfalke_customer_purchases
+  - name: snowflake_customer_purchases
     description: "A starter dbt model made by fausto alvarez"
     columns:
       - name: c_custkey
@@ -55,3 +55,19 @@ models:
         tests:
           - accepted_values:
               values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']
+
+
+
+
+sources:
+  - name: sample
+    database: snowflake_sample_data
+    schema: tpch_sf1
+    tables:
+      - name: customer
+        columns:
+          - name: c_custkey
+            test: 
+              - unique
+              - not_null
+      - name: orders
