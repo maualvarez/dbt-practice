@@ -51,7 +51,7 @@ models:
         tests:
           - unique
           - not_null
-      - name: c_mktsegment
+      - name: C_MKTSEGMENT
         tests:
           - accepted_values:
               values: ['BUILDING', 'AUTOMOBILE', 'MACHINERY', 'HOUSEHOLD', 'FURNITURE']
